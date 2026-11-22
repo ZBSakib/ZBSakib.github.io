@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Md Zayed Bin Sakib Khan — IoT Engineer</title>
-<meta name="description" content="Portfolio of Md Zayed Bin Sakib Khan — IoT Engineer in Kuopio, Finland. Digital twins, OPC UA, post-quantum cryptography, industrial cybersecurity."/>
+<title>Md Zayed Bin Sakib Khan — ICT Laboratory Engineer</title>
+<meta name="description" content="Portfolio of Md Zayed Bin Sakib Khan — ICT Laboratory Engineer at Karelia University of Applied Sciences, Finland. Nutanix data center, local AI (AI Lab, SilverARC AI agent), IoT, digital twins and cybersecurity."/>
 <meta name="author" content="Md Zayed Bin Sakib Khan"/>
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Md Zayed Bin Sakib Khan — IoT Engineer"/>
-<meta property="og:description" content="IoT Engineer: digital twins, OPC UA, post-quantum cryptography, Industry 4.0."/>
+<meta property="og:title" content="Md Zayed Bin Sakib Khan — ICT Laboratory Engineer"/>
+<meta property="og:description" content="ICT Laboratory Engineer at Karelia UAS: Nutanix data center, local AI, IoT, digital twins, cybersecurity."/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%2305010f'/><circle cx='50' cy='50' r='22' fill='none' stroke='%2300fff7' stroke-width='2'/><circle cx='50' cy='50' r='6' fill='%2300fff7'/><line x1='50' y1='18' x2='50' y2='28' stroke='%2300fff7' stroke-width='2'/><line x1='50' y1='72' x2='50' y2='82' stroke='%2300fff7' stroke-width='2'/><line x1='18' y1='50' x2='28' y2='50' stroke='%2300fff7' stroke-width='2'/><line x1='72' y1='50' x2='82' y2='50' stroke='%2300fff7' stroke-width='2'/></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════
    NEON IoT THEME
@@ -257,7 +257,6 @@ nav.on{border-color:var(--border)}
   width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;
   filter:saturate(0.9) contrast(1.1) brightness(.95);
   position:relative;z-index:1;
-  mix-blend-mode:lighten;
 }
 /* Neon tint overlay on photo */
 .photo-frame .tint{
@@ -379,6 +378,11 @@ nav.on{border-color:var(--border)}
 .proj:hover .proj-corner{border-color:var(--magenta);box-shadow:var(--magenta-glow)}
 .proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;gap:12px}
 .proj-idx{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--cyan);text-shadow:var(--cyan-glow)}
+/* Upcoming project card */
+.badge-soon{border-style:dashed;border-color:var(--cyan);color:var(--cyan);text-shadow:var(--cyan-glow);animation:soonpulse 2s ease infinite}
+@keyframes soonpulse{50%{opacity:.75}}
+.proj-upcoming{background:repeating-linear-gradient(135deg,var(--surface) 0 14px,var(--surface2) 14px 15px)}
+.proj-upcoming .proj-desc{font-style:italic}
 .proj-badge{
   font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;
   text-transform:uppercase;padding:3px 8px;
@@ -480,6 +484,79 @@ footer{
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
+/* grid lines drawn by the cards, so empty cells in a part-filled last row stay transparent */
+.proj-grid{background:transparent}
+.proj-grid .proj{box-shadow:0 0 0 1px var(--border)}
+
+/* ── CONTACT LIST ────────────────────────── */
+.contact-list{display:flex;flex-direction:column;gap:18px}
+.contact-item{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap}
+.contact-label{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--magenta);min-width:90px}
+.contact-item .contact-phone{margin-top:0}
+.soc-row{margin-top:48px;gap:20px 40px}
+@media(max-width:960px){.contact-item{flex-direction:column;gap:4px}.contact-email{font-size:18px}}
+
+/* ── NAV LAYOUT ──────────────────────────── */
+.nav-right{display:flex;align-items:center;gap:12px}
+@media(max-width:1200px){.nav-links a{padding:6px 9px;letter-spacing:.06em}}
+
+/* ── READABILITY ─────────────────────────────
+   Plain sans for reading text, larger small labels,
+   no glow on small text, calmer background.
+──────────────────────────────────────────── */
+:root{--font-body:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;--violet-text:#b99bff;--pink-text:#ff7ad9}
+#bgc{opacity:.55}
+.grid-overlay{opacity:.03}
+.hero-sub,.about-body,.proj-desc,.pub-desc,.exp-bullets li,.tp-val,.contact-email{font-family:var(--font-body)}
+.hero-sub,.about-body,.exp-bullets li{text-shadow:0 1px 3px rgba(5,1,15,.9)}
+/* dark glass behind long text so the background scene doesn't compete */
+.timeline{background:rgba(5,1,15,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border:1px solid var(--border)}
+.exp:last-child{border-bottom:none}
+.about-body{background:rgba(5,1,15,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);border:1px solid var(--border);padding:28px 32px}
+
+/* headings: upright, solid weight, soft glow */
+.sec-title em,.proj-title em,.exp-role em,.sk-name em,.edu-deg em,.contact-h2 em,.pub-title em{
+  font-style:normal;font-weight:600;text-shadow:0 0 12px rgba(0,255,247,.35)}
+.hero-h1 .neon{text-shadow:0 0 14px rgba(0,255,247,.4)}
+.pub:hover .pub-title{text-shadow:0 0 10px rgba(0,255,247,.3)}
+
+/* body text sizes */
+.hero-sub{font-size:18px;line-height:1.75;max-width:560px}
+.about-body{font-size:17px;line-height:1.8}
+.proj-desc,.pub-desc{font-size:15px;line-height:1.7}
+.exp-bullets li{font-size:15.5px;line-height:1.65;margin-bottom:7px}
+.tp-val{font-size:15px}
+.pub-title{font-size:20px}
+.proj-title{font-size:25px}
+.proj-upcoming .proj-desc{font-style:normal}
+
+/* small labels: bigger, tighter spacing, no glow */
+.nav-links a{font-size:12px;letter-spacing:.1em}
+.hero-eyebrow{font-size:12.5px;letter-spacing:.2em}
+.chip{font-size:11.5px;letter-spacing:.08em;padding:6px 11px}
+.st-item{font-size:12px;letter-spacing:.06em}
+.photo-caption{font-size:10.5px;letter-spacing:.16em}
+.sec-num{font-size:12.5px;letter-spacing:.16em}
+.tp-header{font-size:11px;letter-spacing:.12em}
+.tp-key{font-size:11px;letter-spacing:.12em;text-shadow:none}
+.sk-num{font-size:11px;color:rgba(255,0,200,.6)}
+.sk-tags{font-size:12px;letter-spacing:.06em;line-height:1.85}
+.exp-yr{font-size:12.5px;letter-spacing:.08em}
+.exp-co{font-size:12.5px;letter-spacing:.06em}
+.proj-idx{font-size:12px;text-shadow:none}
+.proj-badge{font-size:10.5px;letter-spacing:.12em;text-shadow:none}
+.proj-fund{font-size:11.5px;letter-spacing:.08em;color:var(--violet-text);text-shadow:none;line-height:1.6}
+.ptag{font-size:11px;letter-spacing:.06em;padding:4px 8px}
+.pub-yr{font-size:12.5px}
+.pub-authors{font-size:12px;letter-spacing:.06em;color:var(--pink-text);text-shadow:none}
+.pub-venue{font-size:11.5px;letter-spacing:.08em;line-height:1.6}
+.pub-pdf{font-size:11.5px;letter-spacing:.06em;text-shadow:none}
+.edu-school,.edu-yrs{font-size:12.5px;letter-spacing:.08em}
+.edu-gpa-lbl{font-size:11px}
+.contact-phone{font-size:15px}
+.soc-link{font-size:12px;letter-spacing:.14em}
+footer{font-size:11px;letter-spacing:.1em}
+
 /* ── RESPONSIVE ──────────────────────────── */
 @media(max-width:960px){
   body{cursor:auto}
@@ -494,7 +571,9 @@ footer{
   .skills-grid{grid-template-columns:1fr}
   .proj-grid{grid-template-columns:1fr}
   .timeline::before{display:none}
-  .exp{padding:28px 0;grid-template-columns:1fr;gap:8px}
+  .exp{padding:24px 18px;grid-template-columns:1fr;gap:8px}
+  .exp:hover{padding-left:18px}
+  .about-body{padding:22px 20px}
   .exp::before{display:none}
   .pub{grid-template-columns:1fr;gap:8px;padding:20px}
   .pub-venue{display:none}
@@ -507,7 +586,7 @@ footer{
 
 <!-- Loader -->
 <div class="loader" id="loader">
-  <div class="ld-logo">[ SYSTEM BOOT — IoT_ENG ]</div>
+  <div class="ld-logo">[ SYSTEM BOOT — ICT_LAB ]</div>
   <div class="ld-pct" id="ldp">0%</div>
   <div class="ld-track"><div class="ld-fill" id="ldf"></div></div>
   <div class="ld-msg" id="lds">initializing sensors...</div>
@@ -524,7 +603,8 @@ footer{
 
 <!-- Nav -->
 <nav id="nav">
-  <div class="nav-logo"><div class="nav-logo-pulse"></div>ZK_IOT_ENG</div>
+  <div class="nav-logo"><div class="nav-logo-pulse"></div>SK_ICT_LAB_ENGINEER</div>
+  <div class="nav-right">
   <div class="nav-links" id="nl">
     <a href="#hero" data-s="hero">Home</a>
     <a href="#about" data-s="about">About</a>
@@ -536,6 +616,7 @@ footer{
     <a href="#contact" data-s="contact">Contact</a>
   </div>
   <button class="mob-btn" id="mnb">[ MENU ]</button>
+  </div>
 </nav>
 
 <div class="mob-menu" id="mm">
@@ -552,28 +633,30 @@ footer{
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">IoT Engineer · Kuopio, Finland</div>
+    <div class="hero-eyebrow">ICT Laboratory Engineer · Karelia UAS · Finland</div>
     <h1 class="hero-h1">
       <span class="line"><span>Md Zayed</span></span>
-      <span class="line"><span><span class="neon">Bin Sakib</span> Khan.</span></span>
+      <span class="line"><span>Bin <span class="neon">Sakib Khan.</span></span></span>
     </h1>
     <p class="hero-sub">
-      Building <em>digital twins</em>, secure industrial systems and <em>post-quantum cryptography</em> solutions — connecting the physical and digital worlds of critical infrastructure.
+      Keeping Karelia's <em>ICT laboratory and Nutanix data center</em> reliable and secure — and building <em>local, private AI</em> on top of it for the AI Lab and the SilverARC AI agent. Backed by hands-on IoT experience in digital twins, OPC UA and post-quantum cryptography.
     </p>
     <div class="chips">
+      <span class="chip">ICT Laboratory</span>
+      <span class="chip">Data Center</span>
+      <span class="chip">Nutanix</span>
+      <span class="chip">Local AI / LLMs</span>
+      <span class="chip">Ollama</span>
+      <span class="chip">Servers &amp; Networks</span>
+      <span class="chip">Security &amp; Patching</span>
+      <span class="chip">Automation</span>
       <span class="chip">IoT</span>
-      <span class="chip">OPC UA</span>
-      <span class="chip">Cybersecurity</span>
-      <span class="chip">Post-Quantum</span>
       <span class="chip">Digital Twin</span>
-      <span class="chip">Industry 4.0</span>
-      <span class="chip">WaterLAB</span>
-      <span class="chip">AIQUSEC</span>
     </div>
     <div class="hero-status">
-      <div class="st-item"><div class="st-dot c"></div>Lab Engineer @ Savonia UAS</div>
+      <div class="st-item"><div class="st-dot c"></div>ICT Laboratory Engineer @ Karelia UAS</div>
       <div class="st-item"><div class="st-dot m"></div>Open to collaborations</div>
-      <div class="st-item"><div class="st-dot c"></div>Kuopio · Finland</div>
+      <div class="st-item"><div class="st-dot c"></div>Finland</div>
     </div>
   </div>
   <div class="hero-photo-col">
@@ -581,7 +664,7 @@ footer{
       <img src="profile.jpg" alt="Md Zayed Bin Sakib Khan"/>
       <div class="tint"></div>
     </div>
-    <div class="photo-caption">Sakib · IoT Engineer · 2026</div>
+    <div class="photo-caption">Sakib · ICT Laboratory Engineer · 2026</div>
   </div>
 </section>
 
@@ -596,15 +679,18 @@ footer{
       <div class="terminal-panel">
         <div class="tp-header">device_info.json</div>
         <div class="tp-row"><div class="tp-key">name</div><div class="tp-val">Sakib</div></div>
-        <div class="tp-row"><div class="tp-key">location</div><div class="tp-val">Kuopio, Finland</div></div>
-        <div class="tp-row"><div class="tp-key">current_role</div><div class="tp-val">Lab Engineer — IoT Dept.<br/>Savonia UAS</div></div>
+        <div class="tp-row"><div class="tp-key">location</div><div class="tp-val">Finland</div></div>
+        <div class="tp-row"><div class="tp-key">current_role</div><div class="tp-val">ICT Laboratory Engineer<br/>Karelia UAS</div></div>
+        <div class="tp-row"><div class="tp-key">current_focus</div><div class="tp-val">Data center · Local AI<br/>AI Lab · SilverARC</div></div>
         <div class="tp-row"><div class="tp-key">degree</div><div class="tp-val">B.Eng. Internet of Things</div></div>
         <div class="tp-row"><div class="tp-key">gpa</div><div class="tp-val">4.43 / 5.0</div></div>
-        <div class="tp-row"><div class="tp-key">status</div><div class="tp-val online">ONLINE · Open to work</div></div>
+        <div class="tp-row"><div class="tp-key">status</div><div class="tp-val online">ONLINE · Open to collaboration</div></div>
       </div>
       <div class="about-body">
-        <p>I'm <em>Sakib</em> — an IoT Engineer with a Bachelor's degree in Internet of Things from Savonia University of Applied Sciences.</p>
-        <p>My work sits at the intersection of <em>industrial automation</em>, <em>cybersecurity</em>, and <em>smart infrastructure</em>. I've built OPC UA systems for critical infrastructure at Savonia's WaterLAB, developed post-quantum cryptographic tunnels under the Business Finland funded AIQUSEC project, and built digital twin models — from Ignition HMI dashboards to full 3D Unity environments — with real-time anomaly detection achieving F1 scores near 0.9.</p>
+        <p>I'm <em>Sakib</em> — an ICT Laboratory Engineer at Karelia University of Applied Sciences, with a Bachelor's degree in Internet of Things from Savonia University of Applied Sciences.</p>
+        <p>Since August 2026 I've been responsible for the technical maintenance, development and operational support of Karelia's <em>ICT laboratory and Nutanix teaching data center</em> — servers, networks and workstations, security and patching, and the VMs teachers and students work on every day.</p>
+        <p>More and more of that infrastructure now runs <em>local AI</em>. I've set up Lenovo ThinkStation PGX workstations with Ollama, Open WebUI and Qdrant, I'm building the <em>SilverARC AI agent</em> on a private local-LLM stack, and I'm working on Karelia's <em>AI Lab</em> — a closed environment where companies, students and researchers can test AI on sensitive data.</p>
+        <p>Before that, my work at Savonia sat at the intersection of <em>industrial automation</em>, <em>cybersecurity</em>, and <em>smart infrastructure</em>. I've built OPC UA systems for critical infrastructure at Savonia's WaterLAB, developed post-quantum cryptographic tunnels under the Business Finland funded AIQUSEC project, and built digital twin models — from Ignition HMI dashboards to full 3D Unity environments.</p>
         <p>Beyond the technical work, I care about making tomorrow's connected systems not just smarter, but <em>provably safer</em>.</p>
       </div>
     </div>
@@ -622,43 +708,43 @@ footer{
       <div class="skill-card">
         <div class="sk-num">001</div>
         <div>
-          <div class="sk-name"><em>Industrial Automation</em></div>
-          <div class="sk-tags">OPC UA · Beckhoff PLC · Siemens PLC · SCADA · MES · ERP · Industry 4.0</div>
+          <div class="sk-name"><em>ICT Infrastructure &amp; Data Center</em></div>
+          <div class="sk-tags">Nutanix · Servers · Networks · Workstations · System Monitoring · Capacity Management · Updates</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="sk-num">002</div>
         <div>
-          <div class="sk-name"><em>Cybersecurity</em></div>
-          <div class="sk-tags">Post-Quantum Crypto · Network Security · SSH · PQC Tunnels · ISO/IEC TS 30149</div>
+          <div class="sk-name"><em>Security &amp; Operations</em></div>
+          <div class="sk-tags">Patching · Access Management · Network Security · Incident Troubleshooting · SSH · Post-Quantum Crypto · ISO/IEC TS 30149</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="sk-num">003</div>
         <div>
-          <div class="sk-name"><em>Programming</em></div>
-          <div class="sk-tags">Python · Java · C · JavaScript · SQL · HTML/CSS</div>
+          <div class="sk-name"><em>Automation &amp; DevOps</em></div>
+          <div class="sk-tags">Task Automation · Scripting · Linux · Windows · Git · Docker · Kubernetes · CI/CD</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="sk-num">004</div>
         <div>
-          <div class="sk-name"><em>Digital Twin</em></div>
-          <div class="sk-tags">Ignition HMI · Unity · AutoCAD · Visual Components · LSTM-VAE · Anomaly Detection</div>
+          <div class="sk-name"><em>Lab Support &amp; Documentation</em></div>
+          <div class="sk-tags">Laboratory Exercises · Training Environments · Teaching Support · Technical Documentation · Operating Procedures · User Instructions</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="sk-num">005</div>
         <div>
-          <div class="sk-name"><em>DevOps</em></div>
-          <div class="sk-tags">Git · Docker · Kubernetes · CI/CD · Linux · Windows</div>
+          <div class="sk-name"><em>Industrial IoT &amp; Digital Twin</em></div>
+          <div class="sk-tags">OPC UA · Beckhoff PLC · Siemens PLC · SCADA · Ignition HMI · Unity · Visual Components · Industry 4.0</div>
         </div>
       </div>
       <div class="skill-card">
         <div class="sk-num">006</div>
         <div>
-          <div class="sk-name"><em>Data and Systems</em></div>
-          <div class="sk-tags">DBMS · Embedded Systems · LoRaWAN · 5G NR · Node-RED · SQL</div>
+          <div class="sk-name"><em>Programming &amp; Data</em></div>
+          <div class="sk-tags">Python · Java · C · JavaScript · SQL · DBMS · Node-RED · LoRaWAN · Embedded Systems</div>
         </div>
       </div>
     </div>
@@ -675,13 +761,31 @@ footer{
     <div class="timeline reveal">
 
       <div class="exp">
-        <div class="exp-yr">JAN 2026<br/>— PRESENT</div>
+        <div class="exp-yr">AUG 2026<br/>— PRESENT</div>
         <div>
-          <div class="exp-role"><em>Laboratory Engineer</em></div>
-          <div class="exp-co">Savonia University of Applied Sciences · IoT Department · Kuopio</div>
+          <div class="exp-role"><em>ICT Laboratory Engineer</em></div>
+          <div class="exp-co">Karelia University of Applied Sciences · ICT Laboratory &amp; Data Center</div>
           <ul class="exp-bullets">
-            <li>Assist teachers and students during laboratory sessions, experiments, coursework and exams</li>
-            <li>Maintain and organize IoT laboratory equipment supporting teaching and research activities</li>
+            <li>Run the ICT laboratory and Nutanix teaching data center: updates, monitoring, capacity management and security patching</li>
+            <li>Manage teaching use of the data center: student VM limits, Prism Central access for teachers, DNS planning and remote-login guides for lab VMs</li>
+            <li>Maintain and troubleshoot servers, networks, workstations and other lab equipment together with the organization's ICT services</li>
+            <li>Set up Lenovo ThinkStation PGX AI workstations with Ollama, Open WebUI and Qdrant for local LLM work by staff and students</li>
+            <li>Build the SilverARC AI agent and work on the AI Lab (LocalAI Lab) project — see Research &amp; Work</li>
+            <li>Develop an ICT Loan Desk web application for borrowing lab equipment (in development)</li>
+            <li>Administer the organization's Camunda instance</li>
+            <li>Write technical documentation, operating procedures and user instructions; support lab exercises, teachers and students</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-yr">JAN 2026<br/>— JUN 2026</div>
+        <div>
+          <div class="exp-role"><em>Laboratory Engineer — IoT Department</em></div>
+          <div class="exp-co">Savonia University of Applied Sciences · Kuopio</div>
+          <ul class="exp-bullets">
+            <li>Assisted teachers and students during laboratory sessions, experiments, coursework and exams</li>
+            <li>Maintained and organized IoT laboratory equipment supporting teaching and research activities</li>
           </ul>
         </div>
       </div>
@@ -729,7 +833,59 @@ footer{
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">01</div><div class="proj-badge">Research</div></div>
+          <div class="proj-top"><div class="proj-idx">01</div><div class="proj-badge">Work</div></div>
+          <div class="proj-title"><em>Data Center — Nutanix</em></div>
+          <div class="proj-desc">Operation and maintenance of the Nutanix hyperconverged environment behind Karelia's ICT laboratory. System updates, monitoring and capacity management, together with the servers and networks it runs on — keeping the platform secure, patched and reliable in cooperation with the organization's ICT services.</div>
+          <div class="proj-fund">▸ Karelia UAS · Aug 2026 — Present</div>
+        </div>
+        <div class="proj-tags">
+          <div class="ptag">Nutanix</div><div class="ptag">HCI</div><div class="ptag">Monitoring</div><div class="ptag">Capacity</div><div class="ptag">Patching</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div>
+          <div class="proj-top"><div class="proj-idx">02</div><div class="proj-badge">Work</div></div>
+          <div class="proj-title"><em>ICT Laboratory</em></div>
+          <div class="proj-desc">Day-to-day running and development of Karelia's ICT laboratory — servers, networks, workstations and access management. Supporting teachers and students, preparing laboratory exercises and training environments, writing technical documentation and user instructions, and automating repetitive administration tasks.</div>
+          <div class="proj-fund">▸ Karelia UAS · Aug 2026 — Present</div>
+        </div>
+        <div class="proj-tags">
+          <div class="ptag">Lab Operations</div><div class="ptag">Networks</div><div class="ptag">Teaching Support</div><div class="ptag">Documentation</div><div class="ptag">Automation</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div>
+          <div class="proj-top"><div class="proj-idx">03</div><div class="proj-badge">Project</div></div>
+          <div class="proj-title"><em>AI Lab — LocalAI Lab</em></div>
+          <div class="proj-desc">Karelia's project to turn the ICT data center into a closed AI testing environment, where open-source models can be tested on sensitive data without it leaving the building — for companies, the public sector, students and RDI. I've laid the groundwork with ThinkStation PGX workstations running Ollama, Open WebUI and Qdrant.</div>
+          <div class="proj-fund">▸ ERDF · North Karelia Regional Council · Aug 2026 — Jul 2028</div>
+        </div>
+        <div class="proj-tags">
+          <div class="ptag">Local LLMs</div><div class="ptag">GPU</div><div class="ptag">RAG</div><div class="ptag">Data Privacy</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div>
+          <div class="proj-top"><div class="proj-idx">04</div><div class="proj-badge">Project</div></div>
+          <div class="proj-title"><em>SilverARC — AI Agent</em></div>
+          <div class="proj-desc">An AI agent guiding people aged 55+ in Finland and Norway towards entrepreneurship, in Finnish, Norwegian and English. I'm building two prototypes — commercial API models and a local stack (Ollama, Open WebUI, LiteLLM, Langfuse) on Nutanix and ThinkStation PGX — and comparing them on cost, privacy and sustainability.</div>
+          <div class="proj-fund">▸ SilverARC · Jun 2026 — Jun 2028 · MVP in development</div>
+        </div>
+        <div class="proj-tags">
+          <div class="ptag">AI Agent</div><div class="ptag">Ollama</div><div class="ptag">LiteLLM</div><div class="ptag">Multilingual</div>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-corner"></div>
+        <div>
+          <div class="proj-top"><div class="proj-idx">05</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>AIQUSEC</em></div>
           <div class="proj-desc">AI-based Quantum-Safe Cybersecurity Automation and Orchestration for Edge Intelligence in Future Networks. Data analysis, threat profiling, anomaly detection and automation for distributed edge environments. PQC tunnels aligned with ISO/IEC TS 30149.</div>
           <div class="proj-fund">▸ Business Finland · Sep 2023 — Dec 2025</div>
@@ -742,7 +898,7 @@ footer{
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">02</div><div class="proj-badge">Research</div></div>
+          <div class="proj-top"><div class="proj-idx">06</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>Smart Water 2.0</em></div>
           <div class="proj-desc">Real-time monitoring, industrial IoT data pipelines, and data management for water distribution systems. Deployed sensor networks, built OPC UA data flows, and developed monitoring dashboards for Savonia WaterLAB's WaterLOOP simulator.</div>
           <div class="proj-fund">▸ EAKR 2014–2020 · Jun 2023 — Aug 2023</div>
@@ -755,7 +911,7 @@ footer{
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">03</div><div class="proj-badge">Research</div></div>
+          <div class="proj-top"><div class="proj-idx">07</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>SMAGRI — Climate Smart Agriculture</em></div>
           <div class="proj-desc">Data-driven water management analytics and sensor data integration for climate adaptation in agriculture. Applied digital twins and ML to precision farming, resource optimization, and crop monitoring. Published as Savonia R&amp;D report 03/2025.</div>
           <div class="proj-fund">▸ Ministry of Education and Culture · Sep 2024 — Feb 2025</div>
@@ -768,7 +924,7 @@ footer{
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">04</div><div class="proj-badge">Work</div></div>
+          <div class="proj-top"><div class="proj-idx">08</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>AIQUSEC Lab</em></div>
           <div class="proj-desc">Quantum-safe cybersecurity lab with Jyväskylä University. Deployed SSH PrivX Extender on Rocky Linux 9 establishing a PQC tunnel (TLS + post-quantum crypto) to JYU PrivX Server. Integrated Prosys OPC UA Forge as secure industrial data gateway between Savonia Smart Factory and external research systems.</div>
           <div class="proj-fund">▸ AIQUSEC · Business Finland</div>
@@ -781,20 +937,20 @@ footer{
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">05</div><div class="proj-badge">Work</div></div>
+          <div class="proj-top"><div class="proj-idx">09</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>WaterLOOP Digital Twin</em></div>
           <div class="proj-desc">Digital twin of Savonia WaterLAB's 1 km looped pipeline simulator. OPC UA via TwinCAT/Beckhoff CX2033 PLC, Ignition HMI for 2D real-time visualization, and 3D Unity + AutoCAD environment with live sensor feeds (pressure, temperature, flow).</div>
           <div class="proj-fund">▸ Smart Water 2.0 (EAKR) + SWIM (Business Finland)</div>
         </div>
         <div class="proj-tags">
-          <div class="ptag">OPC UA</div><div class="ptag">Unity</div><div class="ptag">Ignition HMI</div><div class="ptag">LSTM-VAE</div>
+          <div class="ptag">OPC UA</div><div class="ptag">Unity</div><div class="ptag">Ignition HMI</div><div class="ptag">AutoCAD</div>
         </div>
       </div>
 
       <div class="proj">
         <div class="proj-corner"></div>
         <div>
-          <div class="proj-top"><div class="proj-idx">06</div><div class="proj-badge">Work</div></div>
+          <div class="proj-top"><div class="proj-idx">10</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>Smart Factory Digital Twin</em></div>
           <div class="proj-desc">3D digital twin of the Lucas-Nülle Smart Factory. OPC UA server on Siemens S7-1500 via TIA Portal, Visual Components 3D simulation as OPC UA client. Real-time pairing of RFID, conveyors, quality control variables — enabling efficiency monitoring and Industry 4.0 scenarios.</div>
           <div class="proj-fund">▸ AuToTIE (North Savo Regional Council) · 2023 — 2025</div>
@@ -803,6 +959,7 @@ footer{
           <div class="ptag">Visual Components</div><div class="ptag">Siemens S7-1500</div><div class="ptag">Profinet</div><div class="ptag">MES/ERP</div>
         </div>
       </div>
+
 
     </div>
   </div>
@@ -828,13 +985,13 @@ footer{
         <div class="pub-venue">Thesis<br/>Savonia UAS</div>
       </a>
 
-      <a class="pub" href="Trustwothiness-modified.pdf" target="_blank" rel="noopener">
+      <a class="pub" href="https://doi.org/10.1007/978-3-032-27541-7_6" target="_blank" rel="noopener">
         <div class="pub-yr">2025</div>
         <div>
           <div class="pub-title"><em>Trustworthiness in IoT: Discussion from WaterLAB and Smart Factory Perspectives</em></div>
           <div class="pub-desc">Conference proceedings. IoT trustworthiness (safety, security, reliability, resilience, privacy per ISO/IEC TS 30149) through Savonia WaterLAB and Smart Factory. Covers AIQUSEC Lab with Prosys OPC UA Forge and SSH PrivX PQC tunnels.</div>
           <div class="pub-authors">Md Khan, Jukka Heikkonen, Rajeev Kanth</div>
-          <div class="pub-pdf">↗ PDF in repo · Trustwothiness-modified.pdf</div>
+          <div class="pub-pdf">↗ DOI: 10.1007/978-3-032-27541-7_6 · Springer</div>
         </div>
         <div class="pub-venue">Conference<br/>ICITS 2025<br/>Springer LNNS</div>
       </a>
@@ -903,12 +1060,15 @@ footer{
     <div class="contact-wrap reveal">
       <div class="contact-tag">07 // CONNECT</div>
       <h2 class="contact-h2"><em>Have an idea<br/>worth building?</em></h2>
-      <a class="contact-email" href="mailto:zayedbinsakibkhan@gmail.com">zayedbinsakibkhan@gmail.com →</a>
-      <a class="contact-phone" href="tel:+358406240945">+358 40 624 0945</a>
+      <div class="contact-list">
+        <div class="contact-item"><span class="contact-label">Work</span><a class="contact-email" href="mailto:sakib.khan@karelia.fi">sakib.khan@karelia.fi →</a></div>
+        <div class="contact-item"><span class="contact-label">Personal</span><a class="contact-email" href="mailto:zayedbinsakibkhan@gmail.com">zayedbinsakibkhan@gmail.com →</a></div>
+        <div class="contact-item"><span class="contact-label">Phone</span><a class="contact-phone" href="tel:+358406240945">+358 40 624 0945</a></div>
+      </div>
       <div class="soc-row">
         <a class="soc-link" href="https://linkedin.com/in/zayed-bin-sakib-9738321b9" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="soc-link" href="https://github.com/ZBSakib" target="_blank" rel="noopener">GitHub</a>
-        <a class="soc-link" href="mailto:zayedbinsakibkhan@gmail.com">Email</a>
+        <a class="soc-link" href="https://github.com/ZBSakib" target="_blank" rel="noopener">GitHub · ZBSakib</a>
+        <a class="soc-link" href="https://github.com/SakibKhan-Karelia" target="_blank" rel="noopener">GitHub · SakibKhan-Karelia</a>
       </div>
     </div>
   </div>
@@ -916,7 +1076,7 @@ footer{
 
 <footer>
   <span>© 2026 Md Zayed Bin Sakib Khan</span>
-  <span class="footer-glow">IoT_ENG // Kuopio · Finland</span>
+  <span class="footer-glow">ICT_LAB // Karelia UAS · Finland</span>
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -932,7 +1092,7 @@ document.querySelectorAll('a,.proj,.skill-card,.exp,.edu-card,button').forEach(f
 });
 
 /* LOADER */
-var statusMsgs=['initializing sensors...','loading OPC UA nodes...','connecting digital twin...','calibrating anomaly detection...','[ ALL SYSTEMS ONLINE ]'];
+var statusMsgs=['initializing ict_lab...','checking nutanix cluster...','waking local llms...','loading digital twins...','[ ALL SYSTEMS ONLINE ]'];
 window.addEventListener('load',function(){
   var ldf=document.getElementById('ldf'),ldp=document.getElementById('ldp'),lds=document.getElementById('lds');
   var p=0,si=0;
@@ -965,97 +1125,154 @@ var mnb=document.getElementById('mnb'),mm=document.getElementById('mm');
 mnb.addEventListener('click',function(){mm.classList.toggle('open');mnb.textContent=mm.classList.contains('open')?'[ CLOSE ]':'[ MENU ]';});
 document.querySelectorAll('.mob-menu a').forEach(function(a){a.addEventListener('click',function(){mm.classList.remove('open');mnb.textContent='[ MENU ]';});});
 
-/* THREE.JS — NEON IOT SCENE */
+if(window.THREE){
+/* THREE.JS — NEON DATA CENTER SCENE
+   Cold aisle between two rows of server racks, blinking status LEDs,
+   overhead cable trays carrying data packets to an HCI (Nutanix-style) cluster. */
 var canvas=document.getElementById('bgc');
 var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:true});
 renderer.setPixelRatio(Math.min(devicePixelRatio,2));
 renderer.setSize(innerWidth,innerHeight);
 
 var scene=new THREE.Scene();
-var cam=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,1000);
-cam.position.z=11;
+scene.fog=new THREE.FogExp2(0x05010f,.06);
+var cam=new THREE.PerspectiveCamera(60,innerWidth/innerHeight,.1,100);
+cam.position.set(0,.4,10);
 
-scene.add(new THREE.AmbientLight(0xffffff,.15));
-var l1=new THREE.PointLight(0x00fff7,2.0,50);l1.position.set(6,6,6);scene.add(l1);
-var l2=new THREE.PointLight(0xff00c8,1.2,40);l2.position.set(-6,-4,5);scene.add(l2);
-var l3=new THREE.PointLight(0x7b2fff,.8,35);l3.position.set(0,8,-4);scene.add(l3);
+scene.add(new THREE.AmbientLight(0xffffff,.25));
+var l1=new THREE.PointLight(0x00fff7,1.1,30);l1.position.set(0,2.4,4);scene.add(l1);
+var l2=new THREE.PointLight(0xff00c8,.55,24);l2.position.set(0,2.6,-1);scene.add(l2);
+var l3=new THREE.PointLight(0x7b2fff,.9,18);l3.position.set(0,1,-4.2);scene.add(l3);
 
-/* Neon nodes */
-var NG=new THREE.Group(),nodes=[];
-for(var i=0;i<36;i++){
-  var g=new THREE.IcosahedronGeometry(.06+(i%3)*.025,0);
-  var col=i%5===0?0xff00c8:i%4===0?0x7b2fff:0x00fff7;
-  var m=new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.9,metalness:.95,roughness:.05});
-  var mesh=new THREE.Mesh(g,m);
-  var r=2.6+Math.random()*2.4,tt=Math.random()*Math.PI*2,pp=Math.acos(2*Math.random()-1);
-  mesh.position.set(r*Math.sin(pp)*Math.cos(tt),r*Math.sin(pp)*Math.sin(tt),r*Math.cos(pp));
-  mesh.userData={sp:.2+Math.random()*.7,ph:Math.random()*Math.PI*2};
-  NG.add(mesh);nodes.push(mesh);
-}
-scene.add(NG);
+var FLOOR=-1.6,RH=3.2,RW=1.0,RD=1.1,UNITS=10,AISLE=1.9,NRACK=8,STEP=1.08,CLZ=-5.4;
+var C_CYAN=new THREE.Color(0x00fff7),C_GREEN=new THREE.Color(0x00ff88),
+    C_MAG=new THREE.Color(0xff00c8),C_PURP=new THREE.Color(0x7b2fff);
+var rackMat=new THREE.MeshStandardMaterial({color:0x0c0520,metalness:.45,roughness:.8,emissive:0x05010f});
+var edgeMat=new THREE.LineBasicMaterial({color:0x00fff7,transparent:true,opacity:.4});
+var rackGeo=new THREE.BoxGeometry(RD,RH,RW),rackEdges=new THREE.EdgesGeometry(rackGeo);
+var unitPos=[],ledPos=[],ledCol=[],ledBase=[],racksTop=[];
 
-/* Glowing connection lines */
-var lpos=[];
-nodes.forEach(function(a,i){
-  nodes.slice(i+1).forEach(function(b){
-    if(a.position.distanceTo(b.position)<2.2){
-      lpos.push(a.position.x,a.position.y,a.position.z,b.position.x,b.position.y,b.position.z);
+function pushLed(x,y,z,c){ledPos.push(x,y,z);ledBase.push(c);ledCol.push(c.r,c.g,c.b);}
+
+/* Server racks: front faces point into the aisle */
+function addRack(x,z,face){
+  var m=new THREE.Mesh(rackGeo,rackMat);m.position.set(x,FLOOR+RH/2,z);scene.add(m);
+  var e=new THREE.LineSegments(rackEdges,edgeMat);e.position.copy(m.position);scene.add(e);
+  var fx=x+face*(RD/2+.01);
+  for(var u=1;u<UNITS;u++){var y=FLOOR+u*RH/UNITS;unitPos.push(fx,y,z-RW/2+.05,fx,y,z+RW/2-.05);}
+  for(var u2=0;u2<UNITS;u2++){
+    var yy=FLOOR+(u2+.5)*RH/UNITS;
+    for(var k=0;k<3;k++){
+      var c=Math.random()<.07?C_MAG:(k===0?C_GREEN:C_CYAN);
+      pushLed(fx+face*.01,yy,z-RW/2+.16+k*.11,c);
     }
-  });
+  }
+  racksTop.push(new THREE.Vector3(x,FLOOR+RH,z));
+}
+for(var i=0;i<NRACK;i++){
+  var rz=4.8-i*STEP;
+  addRack(-AISLE-RD/2,rz,1);
+  addRack(AISLE+RD/2,rz,-1);
+}
+
+/* HCI cluster (4 nodes) closing the end of the aisle */
+var clGeo=new THREE.BoxGeometry(2.8,2.4,1);
+var cl=new THREE.Mesh(clGeo,rackMat);cl.position.set(0,FLOOR+1.2,CLZ);scene.add(cl);
+var clEdgeMat=new THREE.LineBasicMaterial({color:0x7b2fff,transparent:true,opacity:.85});
+var clE=new THREE.LineSegments(new THREE.EdgesGeometry(clGeo),clEdgeMat);clE.position.copy(cl.position);scene.add(clE);
+var cfz=CLZ+.51;
+for(var n=1;n<4;n++){var ny=FLOOR+n*.6;unitPos.push(-1.35,ny,cfz,1.35,ny,cfz);}
+for(var n2=0;n2<4;n2++){
+  var ly=FLOOR+(n2+.5)*.6;
+  for(var k2=0;k2<12;k2++)pushLed(-1.15+k2*.21,ly,cfz+.01,k2%4===0?C_CYAN:C_PURP);
+}
+var clusterTop=new THREE.Vector3(0,FLOOR+2.4,CLZ);
+
+/* Rack unit separators */
+var unitGeo=new THREE.BufferGeometry();
+unitGeo.setAttribute('position',new THREE.Float32BufferAttribute(unitPos,3));
+scene.add(new THREE.LineSegments(unitGeo,new THREE.LineBasicMaterial({color:0x00fff7,transparent:true,opacity:.14})));
+
+/* Status LEDs */
+var ledGeo=new THREE.BufferGeometry();
+ledGeo.setAttribute('position',new THREE.Float32BufferAttribute(ledPos,3));
+var ledColAttr=new THREE.Float32BufferAttribute(ledCol,3);
+ledGeo.setAttribute('color',ledColAttr);
+scene.add(new THREE.Points(ledGeo,new THREE.PointsMaterial({size:.07,vertexColors:true,transparent:true,opacity:.95})));
+
+/* Overhead cable trays + routes to the cluster */
+var TRAY=FLOOR+RH+.45,trayPos=[],paths=[];
+racksTop.forEach(function(p){
+  var s=p.x<0?-1:1;
+  trayPos.push(p.x,p.y,p.z,p.x,TRAY,p.z);
+  var cp=new THREE.CurvePath();
+  var a=p.clone(),b=new THREE.Vector3(p.x,TRAY,p.z),c=new THREE.Vector3(p.x,TRAY,CLZ),
+      d=new THREE.Vector3(s*.7,TRAY,CLZ),e=new THREE.Vector3(s*.7,clusterTop.y,CLZ);
+  cp.add(new THREE.LineCurve3(a,b));cp.add(new THREE.LineCurve3(b,c));
+  cp.add(new THREE.LineCurve3(c,d));cp.add(new THREE.LineCurve3(d,e));
+  paths.push(cp);
 });
-var lGeo=new THREE.BufferGeometry();
-lGeo.setAttribute('position',new THREE.Float32BufferAttribute(lpos,3));
-var lines=new THREE.LineSegments(lGeo,new THREE.LineBasicMaterial({color:0x00fff7,transparent:true,opacity:.2}));
-scene.add(lines);
+[-1,1].forEach(function(s){
+  var x=s*(AISLE+RD/2);
+  trayPos.push(x,TRAY,5.6,x,TRAY,CLZ, x,TRAY,CLZ,s*.7,TRAY,CLZ, s*.7,TRAY,CLZ,s*.7,clusterTop.y,CLZ);
+});
+var trayGeo=new THREE.BufferGeometry();
+trayGeo.setAttribute('position',new THREE.Float32BufferAttribute(trayPos,3));
+scene.add(new THREE.LineSegments(trayGeo,new THREE.LineBasicMaterial({color:0xff00c8,transparent:true,opacity:.35})));
 
-/* Outer icosahedron shell */
-var shell=new THREE.Mesh(
-  new THREE.IcosahedronGeometry(5.6,1),
-  new THREE.MeshBasicMaterial({color:0x00fff7,wireframe:true,transparent:true,opacity:.05})
-);
-scene.add(shell);
+/* Data packets moving along the trays */
+var PK=80,pkPos=new Float32Array(PK*3),pk=[];
+for(var q=0;q<PK;q++)pk.push({path:paths[q%paths.length],t:Math.random(),sp:.0012+Math.random()*.0028,dir:Math.random()<.6?1:-1});
+var pkGeo=new THREE.BufferGeometry();
+pkGeo.setAttribute('position',new THREE.BufferAttribute(pkPos,3));
+scene.add(new THREE.Points(pkGeo,new THREE.PointsMaterial({color:0x00fff7,size:.1,transparent:true,opacity:1})));
 
-/* Second shell — magenta */
-var shell2=new THREE.Mesh(
-  new THREE.IcosahedronGeometry(7,1),
-  new THREE.MeshBasicMaterial({color:0xff00c8,wireframe:true,transparent:true,opacity:.03})
-);
-scene.add(shell2);
+/* Raised floor grid + glowing aisle strips */
+var gGrid=new THREE.GridHelper(40,40,0x00fff7,0x1a0a40);
+gGrid.position.y=FLOOR;gGrid.material.transparent=true;gGrid.material.opacity=.18;scene.add(gGrid);
+var stripGeo=new THREE.BufferGeometry();
+stripGeo.setAttribute('position',new THREE.Float32BufferAttribute([-AISLE+.1,FLOOR+.01,6,-AISLE+.1,FLOOR+.01,CLZ+.6, AISLE-.1,FLOOR+.01,6,AISLE-.1,FLOOR+.01,CLZ+.6],3));
+var stripMat=new THREE.LineBasicMaterial({color:0x00fff7,transparent:true,opacity:.6});
+scene.add(new THREE.LineSegments(stripGeo,stripMat));
 
-/* Grid floor */
-var gGrid=new THREE.GridHelper(40,40,0x00fff7,0x0c0520);
-gGrid.position.y=-8;
-gGrid.material.transparent=true;gGrid.material.opacity=.12;
-scene.add(gGrid);
-
-/* Particles */
-var pa=new Float32Array(1000*3);
-for(var j=0;j<1000*3;j++)pa[j]=(Math.random()-.5)*50;
-var pGeo=new THREE.BufferGeometry();
-pGeo.setAttribute('position',new THREE.BufferAttribute(pa,3));
-scene.add(new THREE.Points(pGeo,new THREE.PointsMaterial({color:0xe0f0ff,size:.012,transparent:true,opacity:.4})));
+/* Floating dust in the air flow */
+var DU=500,du=new Float32Array(DU*3);
+for(var j=0;j<DU;j++){du[j*3]=(Math.random()-.5)*12;du[j*3+1]=FLOOR+Math.random()*5;du[j*3+2]=6-Math.random()*13;}
+var duGeo=new THREE.BufferGeometry();duGeo.setAttribute('position',new THREE.BufferAttribute(du,3));
+scene.add(new THREE.Points(duGeo,new THREE.PointsMaterial({color:0xe0f0ff,size:.015,transparent:true,opacity:.4})));
 
 var tx=0,ty=0,scrollProg=0;
-window.addEventListener('mousemove',function(e){tx=(e.clientX/innerWidth-.5)*.5;ty=(e.clientY/innerHeight-.5)*.5;},{passive:true});
-window.addEventListener('scroll',function(){var mx=document.body.scrollHeight-innerHeight;scrollProg=window.scrollY/mx;},{passive:true});
+window.addEventListener('mousemove',function(e){tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5);},{passive:true});
+window.addEventListener('scroll',function(){var h=document.body.scrollHeight-innerHeight;scrollProg=h>0?window.scrollY/h:0;},{passive:true});
 
 (function animate(){
   requestAnimationFrame(animate);
-  var t=performance.now()*.0005;
-  NG.rotation.y=t*.25+scrollProg*Math.PI;
-  NG.rotation.x=t*.1;
-  lines.rotation.y=NG.rotation.y;lines.rotation.x=NG.rotation.x;
-  nodes.forEach(function(n){var s=1+Math.sin(t*n.userData.sp*4+n.userData.ph)*.4;n.scale.setScalar(s);});
-  shell.rotation.y=-t*.12;shell.rotation.x=t*.06;
-  shell2.rotation.y=t*.08;shell2.rotation.z=t*.04;
-  gGrid.rotation.y=t*.04;
-  /* Pulse light intensities */
-  l1.intensity=1.8+Math.sin(t*3)*.4;
-  l2.intensity=1.0+Math.sin(t*2.3+1)*.3;
-  cam.position.x+=(tx*2-cam.position.x)*.04;
-  cam.position.y+=(-ty*2-cam.position.y)*.04;
-  cam.position.z=11-scrollProg*3;
-  cam.lookAt(0,0,0);
+  var t=performance.now()*.001;
+  /* blink a few LEDs each frame */
+  for(var b=0;b<14;b++){
+    var idx=Math.floor(Math.random()*ledBase.length),c=ledBase[idx],f=Math.random()<.72?1:.12;
+    ledColAttr.setXYZ(idx,c.r*f,c.g*f,c.b*f);
+  }
+  ledColAttr.needsUpdate=true;
+  /* move packets */
+  for(var q=0;q<PK;q++){
+    var o=pk[q];o.t+=o.sp*o.dir;if(o.t>1)o.t-=1;if(o.t<0)o.t+=1;
+    var v=o.path.getPointAt(o.t);pkPos[q*3]=v.x;pkPos[q*3+1]=v.y;pkPos[q*3+2]=v.z;
+  }
+  pkGeo.attributes.position.needsUpdate=true;
+  /* breathing lights */
+  l1.intensity=1.0+Math.sin(t*1.6)*.25;
+  l2.intensity=.5+Math.sin(t*1.1+1)*.15;
+  l3.intensity=.85+Math.sin(t*2.2)*.25;
+  edgeMat.opacity=.33+Math.sin(t*1.3)*.08;
+  clEdgeMat.opacity=.7+Math.sin(t*2.2)*.2;
+  stripMat.opacity=.45+Math.sin(t*1.8)*.15;
+  /* walk down the aisle as the page scrolls */
+  var cz=10-scrollProg*7;
+  cam.position.x+=(tx*1.4+Math.sin(t*.15)*.25-cam.position.x)*.04;
+  cam.position.y+=(.4-ty*.8-cam.position.y)*.04;
+  cam.position.z+=(cz-cam.position.z)*.06;
+  cam.lookAt(cam.position.x*.3,.3,-6);
   renderer.render(scene,cam);
 })();
 
@@ -1063,6 +1280,7 @@ window.addEventListener('resize',function(){
   cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();
   renderer.setSize(innerWidth,innerHeight);
 },{passive:true});
+}
 </script>
 </body>
 </html>
