@@ -654,11 +654,10 @@ footer{font-size:12px;letter-spacing:.06em}
   .proj{padding:28px 22px}
 }
 
-/* Profile section: all text in white */
+/* Profile text and hero intro: all in white (side panel keeps its colours) */
+.hero-sub em{color:var(--fg);text-shadow:none;font-weight:500}
 #about .about-body,#about .about-body em{color:var(--fg)}
 #about .about-body em{text-shadow:none;font-weight:500}
-#about .tp-header,#about .tp-header::before,#about .tp-key,#about .tp-val,#about .tp-val.online{color:var(--fg);text-shadow:none}
-#about .tp-key{opacity:.72}
 @media(min-width:1500px){#about .about-body{column-count:2;column-gap:48px}#about .about-body p{break-inside:avoid}}
 
 /* Neon line along the top edge on hover — same effect as the project cards, on every block */
