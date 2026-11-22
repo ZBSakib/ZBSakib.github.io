@@ -368,14 +368,6 @@ nav.on{border-color:var(--border)}
 }
 .proj:hover{background:var(--surface2)}
 .proj:hover::before{transform:scaleX(1)}
-/* Corner decoration */
-.proj-corner{
-  position:absolute;bottom:0;right:0;
-  width:20px;height:20px;
-  border-bottom:1px solid var(--border2);border-right:1px solid var(--border2);
-  transition:border-color .3s,box-shadow .3s;
-}
-.proj:hover .proj-corner{border-color:var(--magenta);box-shadow:var(--magenta-glow)}
 .proj-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;gap:12px}
 .proj-idx{font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--cyan);text-shadow:var(--cyan-glow)}
 /* Upcoming project card */
@@ -582,18 +574,12 @@ footer{padding:20px var(--gutter)}
 .sec-num{font-size:13px;letter-spacing:.12em;font-weight:600}
 .sec-title{font-size:clamp(38px,4.6vw,76px)}
 
-/* about: panel | text | at a glance */
-.about-grid{grid-template-columns:300px minmax(0,1fr) 260px;gap:40px}
+/* about: panel | text */
+.about-grid{grid-template-columns:300px minmax(0,1fr);gap:40px}
 .about-body{font-size:clamp(17px,1.05vw,19px)}
 .tp-header{font-size:12px;letter-spacing:.08em}
 .tp-key{font-size:11.5px;letter-spacing:.08em;font-weight:500}
 .tp-val{font-size:15.5px}
-.glance{border:1px solid var(--border);background:rgba(12,5,32,.75);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-.glance-hd{padding:10px 18px;border-bottom:1px solid var(--border);background:var(--surface2);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
-.glance-item{display:flex;flex-direction:column;gap:2px;padding:18px;border-bottom:1px solid var(--border)}
-.glance-item:last-child{border-bottom:none}
-.glance-num{font-family:var(--font-ui);font-size:46px;font-weight:700;line-height:1;color:var(--cyan);text-shadow:0 0 14px rgba(0,255,247,.35)}
-.glance-lbl{font-family:var(--font-body);font-size:14.5px;color:var(--label)}
 
 /* skills: content starts at the top, tags in plain readable text */
 .skill-card{justify-content:flex-start;gap:6px;min-height:0;padding:34px 32px}
@@ -654,18 +640,11 @@ footer{font-size:12px;letter-spacing:.06em}
 }
 @media(max-width:1299px){
   .about-grid{grid-template-columns:280px minmax(0,1fr)}
-  .glance{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr)}
-  .glance-hd{grid-column:1/-1}
-  .glance-item{border-bottom:none;border-right:1px solid var(--border)}
-  .glance-item:last-child{border-right:none}
-}
+        }
 @media(max-width:960px){
   #hero{grid-template-columns:1fr;padding:84px 20px 60px}
   .about-grid{grid-template-columns:1fr}
-  .glance{grid-template-columns:1fr 1fr}
-  .glance-item:nth-child(3){border-right:none}
-  .glance-item{border-bottom:1px solid var(--border)}
-  .exp{grid-template-columns:1fr;padding:24px 18px}
+        .exp{grid-template-columns:1fr;padding:24px 18px}
   .exp:hover{padding-left:18px}
   .exp-role{font-size:25px}
   .pub{padding:22px 20px}
@@ -674,6 +653,32 @@ footer{font-size:12px;letter-spacing:.06em}
   .skill-card{padding:28px 22px}
   .proj{padding:28px 22px}
 }
+
+/* Profile section: all text in white */
+#about .about-body,#about .about-body em{color:var(--fg)}
+#about .about-body em{text-shadow:none;font-weight:500}
+#about .tp-header,#about .tp-header::before,#about .tp-key,#about .tp-val,#about .tp-val.online{color:var(--fg);text-shadow:none}
+#about .tp-key{opacity:.72}
+@media(min-width:1500px){#about .about-body{column-count:2;column-gap:48px}#about .about-body p{break-inside:avoid}}
+
+/* Neon line along the top edge on hover — same effect as the project cards, on every block */
+.skill-card,.exp,.pub,.terminal-panel,.about-body,.edu-card,.contact-body{
+  background-image:linear-gradient(90deg,var(--cyan),var(--magenta),var(--purple));
+  background-repeat:no-repeat;background-position:0 0;background-size:0% 2px;
+  transition:background-size .45s cubic-bezier(.16,1,.3,1),background-color .3s,box-shadow .3s,padding-left .3s;
+}
+.skill-card:hover,.exp:hover,.pub:hover,.terminal-panel:hover,.about-body:hover,.edu-card:hover,.contact-body:hover{
+  background-image:linear-gradient(90deg,var(--cyan),var(--magenta),var(--purple));
+  background-repeat:no-repeat;background-position:0 0;background-size:100% 2px;
+}
+.terminal-panel:hover,.about-body:hover,.edu-card:hover,.contact-body:hover{box-shadow:0 -1px 18px -6px rgba(0,255,247,.55)}
+.pub:hover{box-shadow:0 0 0 1px var(--border),0 -1px 18px -6px rgba(0,255,247,.55)}
+.proj-grid .proj:hover{box-shadow:0 0 0 1px var(--border)}
+.pub,.pub:hover{border-left-color:transparent}
+.skill-card::after{display:none}
+/* the panel's header bar has its own background, so the line is drawn on it */
+.terminal-panel .tp-header{background-image:linear-gradient(90deg,var(--cyan),var(--magenta),var(--purple));background-repeat:no-repeat;background-position:0 0;background-size:0% 2px;transition:background-size .45s cubic-bezier(.16,1,.3,1)}
+.terminal-panel:hover .tp-header{background-size:100% 2px}
 
 /* ── RESPONSIVE ──────────────────────────── */
 @media(max-width:960px){
@@ -790,7 +795,7 @@ footer{font-size:12px;letter-spacing:.06em}
   <div class="sec">
     <div class="sec-hd reveal">
       <div><div class="sec-num">01 // ABOUT</div></div>
-      <h2 class="sec-title"><em>System profile</em></h2>
+      <h2 class="sec-title"><em>Profile</em></h2>
     </div>
     <div class="about-grid reveal">
       <div class="terminal-panel">
@@ -809,13 +814,6 @@ footer{font-size:12px;letter-spacing:.06em}
         <p>More and more of that infrastructure now runs <em>local AI</em>. I've set up Lenovo ThinkStation PGX workstations with Ollama, Open WebUI and Qdrant, I'm building the <em>SilverARC AI agent</em> on a private local-LLM stack, and I'm working on Karelia's <em>AI Lab</em> — a closed environment where companies, students and researchers can test AI on sensitive data.</p>
         <p>Before that, my work at Savonia sat at the intersection of <em>industrial automation</em>, <em>cybersecurity</em>, and <em>smart infrastructure</em>. I've built OPC UA systems for critical infrastructure at Savonia's WaterLAB, developed post-quantum cryptographic tunnels under the Business Finland funded AIQUSEC project, and built digital twin models — from Ignition HMI dashboards to full 3D Unity environments.</p>
         <p>Beyond the technical work, I care about making tomorrow's connected systems not just smarter, but <em>provably safer</em>.</p>
-      </div>
-      <div class="glance">
-        <div class="glance-hd">At a glance</div>
-        <div class="glance-item"><span class="glance-num">10</span><span class="glance-lbl">Projects &amp; builds</span></div>
-        <div class="glance-item"><span class="glance-num">5</span><span class="glance-lbl">Publications &amp; reports</span></div>
-        <div class="glance-item"><span class="glance-num">3</span><span class="glance-lbl">Funded research projects</span></div>
-        <div class="glance-item"><span class="glance-num">2</span><span class="glance-lbl">Local-AI projects in progress</span></div>
       </div>
     </div>
   </div>
@@ -955,7 +953,6 @@ footer{font-size:12px;letter-spacing:.06em}
     <div class="proj-grid reveal">
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">01</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>Data Center — Nutanix</em></div>
@@ -968,7 +965,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">02</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>ICT Laboratory</em></div>
@@ -981,7 +977,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">03</div><div class="proj-badge">Project</div></div>
           <div class="proj-title"><em>AI Lab — LocalAI Lab</em></div>
@@ -994,7 +989,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">04</div><div class="proj-badge">Project</div></div>
           <div class="proj-title"><em>SilverARC — AI Agent</em></div>
@@ -1007,7 +1001,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">05</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>AIQUSEC</em></div>
@@ -1020,7 +1013,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">06</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>Smart Water 2.0</em></div>
@@ -1033,7 +1025,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">07</div><div class="proj-badge">Research</div></div>
           <div class="proj-title"><em>SMAGRI — Climate Smart Agriculture</em></div>
@@ -1046,7 +1037,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">08</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>AIQUSEC Lab</em></div>
@@ -1059,7 +1049,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">09</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>WaterLOOP Digital Twin</em></div>
@@ -1072,7 +1061,6 @@ footer{font-size:12px;letter-spacing:.06em}
       </div>
 
       <div class="proj">
-        <div class="proj-corner"></div>
         <div>
           <div class="proj-top"><div class="proj-idx">10</div><div class="proj-badge">Work</div></div>
           <div class="proj-title"><em>Smart Factory Digital Twin</em></div>
