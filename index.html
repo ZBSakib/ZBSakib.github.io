@@ -13,7 +13,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%2305010f'/><circle cx='50' cy='50' r='22' fill='none' stroke='%2300fff7' stroke-width='2'/><circle cx='50' cy='50' r='6' fill='%2300fff7'/><line x1='50' y1='18' x2='50' y2='28' stroke='%2300fff7' stroke-width='2'/><line x1='50' y1='72' x2='50' y2='82' stroke='%2300fff7' stroke-width='2'/><line x1='18' y1='50' x2='28' y2='50' stroke='%2300fff7' stroke-width='2'/><line x1='72' y1='50' x2='82' y2='50' stroke='%2300fff7' stroke-width='2'/></svg>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════
    NEON IoT THEME
@@ -40,7 +40,7 @@
   --magenta-glow: 0 0 8px #ff00c8, 0 0 20px rgba(255,0,200,.4);
   --purple-glow:  0 0 8px #7b2fff, 0 0 20px rgba(123,47,255,.4);
   --font-ui:   'Rajdhani', sans-serif;
-  --font-mono: 'Share Tech Mono', monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
 }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -557,6 +557,124 @@ footer{
 .soc-link{font-size:12px;letter-spacing:.14em}
 footer{font-size:11px;letter-spacing:.1em}
 
+/* ══════════════════════════════════════════
+   WIDE LAYOUT + READABLE TYPE
+   Uses the full width of large screens and keeps
+   every small label at a comfortable size.
+══════════════════════════════════════════ */
+:root{--wrap:1680px;--gutter:clamp(20px,4vw,72px);--label:#cfe0f2}
+.sec{max-width:var(--wrap);padding:110px var(--gutter)}
+#hero{max-width:var(--wrap);padding:0 var(--gutter);grid-template-columns:minmax(0,1fr) clamp(340px,26vw,480px);gap:clamp(40px,5vw,110px)}
+nav{padding:0 var(--gutter)}
+footer{padding:20px var(--gutter)}
+
+/* hero */
+.hero-h1{font-size:clamp(48px,6.6vw,128px)}
+.hero-sub{font-size:clamp(17px,1.15vw,20px);max-width:700px}
+.hero-eyebrow{font-size:13px;letter-spacing:.14em;font-weight:500}
+.chip{font-size:12.5px;letter-spacing:.04em;font-weight:500;padding:7px 12px}
+.st-item{font-size:13px;letter-spacing:.02em}
+.photo-caption{font-size:11.5px;letter-spacing:.1em}
+
+/* nav + labels */
+.nav-logo{font-size:14px;letter-spacing:.08em;font-weight:600}
+.nav-links a{font-size:12.5px;letter-spacing:.06em;font-weight:500}
+.sec-num{font-size:13px;letter-spacing:.12em;font-weight:600}
+.sec-title{font-size:clamp(38px,4.6vw,76px)}
+
+/* about: panel | text | at a glance */
+.about-grid{grid-template-columns:300px minmax(0,1fr) 260px;gap:40px}
+.about-body{font-size:clamp(17px,1.05vw,19px)}
+.tp-header{font-size:12px;letter-spacing:.08em}
+.tp-key{font-size:11.5px;letter-spacing:.08em;font-weight:500}
+.tp-val{font-size:15.5px}
+.glance{border:1px solid var(--border);background:rgba(12,5,32,.75);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.glance-hd{padding:10px 18px;border-bottom:1px solid var(--border);background:var(--surface2);font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan)}
+.glance-item{display:flex;flex-direction:column;gap:2px;padding:18px;border-bottom:1px solid var(--border)}
+.glance-item:last-child{border-bottom:none}
+.glance-num{font-family:var(--font-ui);font-size:46px;font-weight:700;line-height:1;color:var(--cyan);text-shadow:0 0 14px rgba(0,255,247,.35)}
+.glance-lbl{font-family:var(--font-body);font-size:14.5px;color:var(--label)}
+
+/* skills: content starts at the top, tags in plain readable text */
+.skill-card{justify-content:flex-start;gap:6px;min-height:0;padding:34px 32px}
+.sk-num{font-size:12px;letter-spacing:.1em}
+.sk-name{font-size:25px;margin:8px 0 12px}
+.sk-tags{font-family:var(--font-body);font-size:15px;letter-spacing:0;text-transform:none;line-height:1.75;color:var(--label)}
+
+/* work timeline: wider date column, bullets in two columns on wide screens */
+.exp{grid-template-columns:200px minmax(0,1fr);padding:40px 40px 40px 56px}
+.exp:hover{padding-left:68px}
+.exp-yr{font-size:13px;letter-spacing:.06em;font-weight:500}
+.exp-role{font-size:30px}
+.exp-co{font-size:13.5px;letter-spacing:.02em;color:var(--label)}
+.exp-bullets li{font-size:16px}
+
+/* project cards */
+.proj{padding:36px}
+.proj-idx{font-size:12.5px;letter-spacing:.1em}
+.proj-badge{font-size:11px;letter-spacing:.08em;font-weight:600}
+.proj-title{font-size:27px}
+.proj-desc{font-size:15.5px;line-height:1.72}
+.proj-fund{font-size:12px;letter-spacing:.04em;font-weight:500}
+.ptag{font-size:11.5px;letter-spacing:.03em;font-weight:500;padding:5px 9px}
+
+/* publications: cards with year and venue on top */
+.pub-list{background:transparent;gap:1px}
+.pub{box-shadow:0 0 0 1px var(--border);grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"yr venue" "body body";gap:14px 24px;padding:30px 34px}
+.pub>.pub-yr{grid-area:yr}
+.pub>div:nth-child(2){grid-area:body}
+.pub>.pub-venue{grid-area:venue;text-align:right}
+
+.pub-yr{font-size:13px;letter-spacing:.06em;font-weight:600;color:var(--cyan)}
+.pub-venue{font-size:12px;letter-spacing:.06em;color:var(--label)}
+.pub-title{font-size:21px;line-height:1.3}
+.pub-desc{font-size:15.5px;line-height:1.7}
+.pub-authors{font-size:12.5px;letter-spacing:.03em;font-weight:500}
+.pub-pdf{font-size:12px;letter-spacing:.03em;font-weight:500}
+.pub:hover{padding-left:34px}
+
+/* education + contact */
+.edu-school,.edu-yrs{font-size:13.5px;letter-spacing:.04em}
+.edu-gpa-lbl{font-size:12px;letter-spacing:.1em}
+.contact-wrap{min-height:72vh;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px clamp(40px,6vw,120px);align-items:center}
+.contact-h2{margin-bottom:0}
+.contact-body{background:rgba(5,1,15,.74);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);border:1px solid var(--border);padding:clamp(24px,2.4vw,40px)}
+.contact-tag{font-size:13px;letter-spacing:.12em}
+.contact-label{font-size:12.5px;letter-spacing:.08em;font-weight:600}
+.contact-email{font-size:clamp(19px,1.4vw,24px)}
+.contact-phone{font-size:16px;letter-spacing:.04em}
+.soc-link{font-size:13px;letter-spacing:.06em;font-weight:500}
+footer{font-size:12px;letter-spacing:.06em}
+
+@media(min-width:1300px){
+  .exp-bullets{columns:2;column-gap:44px}
+  .exp-bullets li{break-inside:avoid}
+  .pub-list{display:grid;grid-template-columns:1fr 1fr}
+  .pub:last-child:nth-child(odd){grid-column:1/-1}
+}
+@media(max-width:1299px){
+  .about-grid{grid-template-columns:280px minmax(0,1fr)}
+  .glance{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr)}
+  .glance-hd{grid-column:1/-1}
+  .glance-item{border-bottom:none;border-right:1px solid var(--border)}
+  .glance-item:last-child{border-right:none}
+}
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;padding:84px 20px 60px}
+  .about-grid{grid-template-columns:1fr}
+  .glance{grid-template-columns:1fr 1fr}
+  .glance-item:nth-child(3){border-right:none}
+  .glance-item{border-bottom:1px solid var(--border)}
+  .exp{grid-template-columns:1fr;padding:24px 18px}
+  .exp:hover{padding-left:18px}
+  .exp-role{font-size:25px}
+  .pub{padding:22px 20px}
+  .pub:hover{padding-left:20px}
+  .contact-wrap{grid-template-columns:1fr}
+  .skill-card{padding:28px 22px}
+  .proj{padding:28px 22px}
+}
+
 /* ── RESPONSIVE ──────────────────────────── */
 @media(max-width:960px){
   body{cursor:auto}
@@ -575,8 +693,7 @@ footer{font-size:11px;letter-spacing:.1em}
   .exp:hover{padding-left:18px}
   .about-body{padding:22px 20px}
   .exp::before{display:none}
-  .pub{grid-template-columns:1fr;gap:8px;padding:20px}
-  .pub-venue{display:none}
+  .pub{grid-template-columns:minmax(0,1fr) auto;gap:10px 16px;padding:22px 20px}
   .edu-card{grid-template-columns:1fr;padding:28px}
   .edu-gpa{text-align:left}
 }
@@ -692,6 +809,13 @@ footer{font-size:11px;letter-spacing:.1em}
         <p>More and more of that infrastructure now runs <em>local AI</em>. I've set up Lenovo ThinkStation PGX workstations with Ollama, Open WebUI and Qdrant, I'm building the <em>SilverARC AI agent</em> on a private local-LLM stack, and I'm working on Karelia's <em>AI Lab</em> — a closed environment where companies, students and researchers can test AI on sensitive data.</p>
         <p>Before that, my work at Savonia sat at the intersection of <em>industrial automation</em>, <em>cybersecurity</em>, and <em>smart infrastructure</em>. I've built OPC UA systems for critical infrastructure at Savonia's WaterLAB, developed post-quantum cryptographic tunnels under the Business Finland funded AIQUSEC project, and built digital twin models — from Ignition HMI dashboards to full 3D Unity environments.</p>
         <p>Beyond the technical work, I care about making tomorrow's connected systems not just smarter, but <em>provably safer</em>.</p>
+      </div>
+      <div class="glance">
+        <div class="glance-hd">At a glance</div>
+        <div class="glance-item"><span class="glance-num">10</span><span class="glance-lbl">Projects &amp; builds</span></div>
+        <div class="glance-item"><span class="glance-num">5</span><span class="glance-lbl">Publications &amp; reports</span></div>
+        <div class="glance-item"><span class="glance-num">3</span><span class="glance-lbl">Funded research projects</span></div>
+        <div class="glance-item"><span class="glance-num">2</span><span class="glance-lbl">Local-AI projects in progress</span></div>
       </div>
     </div>
   </div>
@@ -975,14 +1099,14 @@ footer{font-size:11px;letter-spacing:.1em}
     <div class="pub-list reveal">
 
       <a class="pub" href="https://urn.fi/URN:NBN:fi:amk-2024052716614" target="_blank" rel="noopener">
-        <div class="pub-yr">MAY<br/>2024</div>
+        <div class="pub-yr">MAY 2024</div>
         <div>
           <div class="pub-title"><em>OPC Unified Architecture and Digital Replica for Critical Infrastructure Networks</em></div>
           <div class="pub-desc">Bachelor's thesis. OPC UA server-client architecture for WaterLAB and Smart Factory, digital twin prototype on Ignition platform, comparative analysis of UaExpert, Prosys OPC UA Monitor/Historian, and Node-RED on data security and transmission rate.</div>
           <div class="pub-authors">Md Zayed Bin Sakib Khan</div>
           <div class="pub-pdf">↗ Available at urn.fi</div>
         </div>
-        <div class="pub-venue">Thesis<br/>Savonia UAS</div>
+        <div class="pub-venue">Thesis · Savonia UAS</div>
       </a>
 
       <a class="pub" href="https://doi.org/10.1007/978-3-032-27541-7_6" target="_blank" rel="noopener">
@@ -993,29 +1117,29 @@ footer{font-size:11px;letter-spacing:.1em}
           <div class="pub-authors">Md Khan, Jukka Heikkonen, Rajeev Kanth</div>
           <div class="pub-pdf">↗ DOI: 10.1007/978-3-032-27541-7_6 · Springer</div>
         </div>
-        <div class="pub-venue">Conference<br/>ICITS 2025<br/>Springer LNNS</div>
+        <div class="pub-venue">Conference · ICITS 2025 · Springer LNNS</div>
       </a>
 
       <a class="pub" href="https://www.savonia.fi/en/tekniikan-ala/smart-factory-digital-model-for-efficiency-and-optimization/" target="_blank" rel="noopener">
-        <div class="pub-yr">FEB<br/>2025</div>
+        <div class="pub-yr">FEB 2025</div>
         <div>
           <div class="pub-title"><em>Smart Factory Digital Model for Efficiency and Optimization</em></div>
           <div class="pub-desc">Savonia article. Lucas-Nülle Smart Factory using OPC UA connectivity and Visual Components digital modelling. Siemens TIA Portal OPC UA server configuration, real-time PLC variable pairing, and simulation-based production analysis.</div>
           <div class="pub-authors">Md Khan, Rajeev Kanth</div>
           <div class="pub-pdf">↗ savonia.fi · Also: Savonia_2025_3.pdf</div>
         </div>
-        <div class="pub-venue">Article<br/>Savonia.fi<br/>Feb 2025</div>
+        <div class="pub-venue">Article · Savonia.fi · Feb 2025</div>
       </a>
 
       <a class="pub" href="Savonia_2025_3.pdf" target="_blank" rel="noopener">
-        <div class="pub-yr">MAR<br/>2025</div>
+        <div class="pub-yr">MAR 2025</div>
         <div>
           <div class="pub-title"><em>Applications of Digital Twins and Machine Learning in Climate-Smart Agriculture</em></div>
           <div class="pub-desc">R&amp;D report for the SMAGRI project. Reviews digital twin applications across precision farming, crop monitoring, livestock management, and supply chain. Practical implementations: WaterLOOP and Smart Factory digital twins.</div>
           <div class="pub-authors">Md Zayed Bin Sakib Khan, Patryk Wójtowicz</div>
           <div class="pub-pdf">↗ PDF in repo · Savonia Series 03/2025 · ISBN 978-952-203-354-3</div>
         </div>
-        <div class="pub-venue">Report<br/>Savonia<br/>03/2025</div>
+        <div class="pub-venue">Report · Savonia · 03/2025</div>
       </a>
 
       <a class="pub" href="maitri_article_2026-v5.pdf" target="_blank" rel="noopener">
@@ -1026,7 +1150,7 @@ footer{font-size:11px;letter-spacing:.1em}
           <div class="pub-authors">Md Khan, Patryk Wójtowicz, Aki Happonen, Jukka Heikkonen, Rajeev Kanth</div>
           <div class="pub-pdf">↗ PDF in repo · maitri_article_2026-v5.pdf</div>
         </div>
-        <div class="pub-venue">Conference<br/>Paper<br/>2025</div>
+        <div class="pub-venue">Conference · Paper · 2025</div>
       </a>
 
     </div>
@@ -1058,8 +1182,11 @@ footer{font-size:11px;letter-spacing:.1em}
 <section id="contact">
   <div class="sec">
     <div class="contact-wrap reveal">
-      <div class="contact-tag">07 // CONNECT</div>
-      <h2 class="contact-h2"><em>Have an idea<br/>worth building?</em></h2>
+      <div class="contact-head">
+        <div class="contact-tag">07 // CONNECT</div>
+        <h2 class="contact-h2"><em>Have an idea<br/>worth building?</em></h2>
+      </div>
+      <div class="contact-body">
       <div class="contact-list">
         <div class="contact-item"><span class="contact-label">Work</span><a class="contact-email" href="mailto:sakib.khan@karelia.fi">sakib.khan@karelia.fi →</a></div>
         <div class="contact-item"><span class="contact-label">Personal</span><a class="contact-email" href="mailto:zayedbinsakibkhan@gmail.com">zayedbinsakibkhan@gmail.com →</a></div>
@@ -1069,6 +1196,7 @@ footer{font-size:11px;letter-spacing:.1em}
         <a class="soc-link" href="https://linkedin.com/in/zayed-bin-sakib-9738321b9" target="_blank" rel="noopener">LinkedIn</a>
         <a class="soc-link" href="https://github.com/ZBSakib" target="_blank" rel="noopener">GitHub · ZBSakib</a>
         <a class="soc-link" href="https://github.com/SakibKhan-Karelia" target="_blank" rel="noopener">GitHub · SakibKhan-Karelia</a>
+      </div>
       </div>
     </div>
   </div>
